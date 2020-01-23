@@ -18,7 +18,7 @@ server {
 
         # Paramètres du proxy
         location / {
-                proxy_pass             http://domain.tld/;
+                proxy_pass             http://$1/;
                 proxy_set_header Host     domain.tld;
         }
         }"
@@ -34,11 +34,6 @@ nginxConfigHttps () {
         ssl_certificate     $1;
         ssl_certificate_key     $2;
         ssl_dhparam         $3;
-
-        # List des ciphers autorisés
-        ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-
-        AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:
-        DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;
 
 # Paramètres du proxy
         location / {
@@ -76,8 +71,10 @@ show_usage () {
 
 
 while :; do
-   case "${1}" in
-   "-h"|"--help")
-     show_usage
-     break
-   ;;
+   case "${1}" in 
+     "-h"|"--help")
+       show_usage
+       break
+       ;;
+   esac
+done
