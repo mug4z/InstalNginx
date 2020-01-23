@@ -45,9 +45,24 @@ nginxConfigHttps () {
 } >> $4
 
 show_usage () {
-  echo "usage test:$0 "
-}
+  echo "-h Show this help
+        -hts; --https Configure for https redirection
+        -ht;  --http  Configure for http redirection
+        "
 
+}
+nginx_reload (){
+
+}
+nginx_activate_site (){
+
+}
+nginx_disable_site (){
+
+}
+nginx_new_site(){
+        
+}
 #-------Main---------#
 # update system
 #apt update -y
